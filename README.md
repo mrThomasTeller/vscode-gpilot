@@ -10,7 +10,16 @@ I'm trying to make this extension as similar to GitHub Copilot as possible. I wo
 
 ## Installation
 
-To install this extension, you need to run the command `Developer: Install Extension from Location...` in VS Code.
+Clone the repository, install dependencies and build package:
+
+```bash
+git clone https://github.com/mrThomasTeller/vscode-gpilot
+cd vscode-gpilot
+npm i
+npm run package
+```
+
+Run the command `Developer: Install Extension from Location...` in VS Code and choose `vscode-gpilot` folder.
 
 ## Usage
 
