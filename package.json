@@ -1,0 +1,76 @@
+{
+  "name": "gpilot",
+  "displayName": "gpilot",
+  "description": "Visual Studio Code extension for AI-powered code completion. The free analog of Github Copilot powered by GPT3 official API.",
+  "keywords": [
+    "AI",
+    "gpt",
+    "gpt3",
+    "code completion",
+    "code suggestions",
+    "Github Copilot",
+    "VS Code",
+    "Visual Studio Code",
+    "extension"
+  ],
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gpilot.suggest",
+        "title": "GPilot: Suggest code"
+      }
+    ],
+    "configuration": {
+      "title": "GPilot",
+      "properties": {
+        "gpilot.apiKey": {
+          "type": "string",
+          "default": false,
+          "description": "Open AI API key (https://platform.openai.com/account/api-keys)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "string-replace-loader": "^3.1.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "chatgpt": "^5.0.10",
+    "node-fetch": "^2.6.9"
+  }
+}
