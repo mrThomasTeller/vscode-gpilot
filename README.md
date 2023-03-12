@@ -10,11 +10,11 @@ I'm trying to make this extension as similar to GitHub Copilot as possible. I wo
 
 ## Installation
 
-To install this extension, you need to run the command `Developer: Install Extension from Location...` from the local source.
+To install this extension, you need to run the command `Developer: Install Extension from Location...` in VS Code.
 
 ## Usage
 
-Place the cursor where you want the code hint and run the command `GPilot: Suggest code`.
+Place the cursor where you want the code suggestion and run the command `GPilot: Suggest code`.
 
 ## Todo
 
