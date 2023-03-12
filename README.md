@@ -1,4 +1,4 @@
-# GPilot
+# GPilot (alpha version)
 
 ![Usage Animation](usage.gif)
 
