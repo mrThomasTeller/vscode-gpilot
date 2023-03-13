@@ -70,7 +70,9 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "chalk": "^5.2.0",
     "chatgpt": "^5.0.10",
-    "node-fetch": "^2.6.9"
+    "node-fetch": "^2.6.9",
+    "winston": "^3.8.2"
   }
 }

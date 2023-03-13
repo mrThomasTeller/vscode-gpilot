@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import getChatGPT from './getChatGPT';
+import { formatCodeForInsertion } from './utils/code';
 
 export async function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand('gpilot.suggest', async () => {
@@ -22,13 +23,13 @@ export async function activate(context: vscode.ExtensionContext) {
     const api = await getChatGPT();
 
     if (api) {
+      const systemMessage = `I'll send you ${document.languageId} code. You should write the best replacement for placeholder {write code here} in the text. No explanations. Don't touch my code.`;
       const res = await api.sendMessage(`${textBeforeCursor}{write code here}${textAfterCursor}`, {
-        systemMessage:
-          "Write just code suggestion, nothing more. Don't write your explanations. Don't repeat my code. Your code only.",
+        systemMessage,
       });
 
       editor.edit(async (editBuilder) => {
-        editBuilder.replace(selection, res.text);
+        editBuilder.replace(selection, formatCodeForInsertion(res.text, textBeforeCursor));
 
         // format inserted text
         // const insertedText = res.text;
