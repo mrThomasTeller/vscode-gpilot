@@ -31,7 +31,7 @@ Problems I plan to fix soon:
 
 - No preview of suggested code before inserting
 - Sometimes a suggestion in human language is inserted instead of a code suggestion, or a part of already written code is duplicated
-- Code is inserted without formatting to match the document style
+- Code is inserted without appropriate formatting
 - No warning about invalid API key or insufficient balance on Open AI account
 
 ## Contributing
