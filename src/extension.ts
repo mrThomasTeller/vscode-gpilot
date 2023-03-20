@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import getChatGPT from './getChatGPT';
 import { formatCodeForInsertion } from './utils/code';
+import isProgrammingLanguage from './utils/isProgrammingLanguage';
+import logger from './logger';
 
 export async function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand('gpilot.suggest', async () => {
@@ -23,10 +25,20 @@ export async function activate(context: vscode.ExtensionContext) {
     const api = await getChatGPT();
 
     if (api) {
-      const systemMessage = `I'll send you ${document.languageId} code. You should write the best replacement for placeholder {write code here} in the text. No explanations. Don't touch my code.`;
-      const res = await api.sendMessage(`${textBeforeCursor}{write code here}${textAfterCursor}`, {
-        systemMessage,
-      });
+      const programmingLanguage = isProgrammingLanguage(document.languageId, textBeforeCursor);
+      const contentName = programmingLanguage ? 'code' : 'text';
+
+      let systemMessage = `I'll send you ${document.languageId} ${contentName}. You should write the best replacement for placeholder {write ${contentName} here} in the text.`;
+      if (programmingLanguage) {
+        systemMessage += " No explanations. Don't touch my code.";
+      }
+
+      const requestText = `${textBeforeCursor}{write ${contentName} here}${textAfterCursor}`;
+      const res = await api.sendMessage(requestText, { systemMessage });
+
+      logger.info(`systemMessage: ${systemMessage}`);
+      logger.info(`request: ${requestText}`);
+      logger.info(`response: ${res.text}`);
 
       editor.edit(async (editBuilder) => {
         editBuilder.replace(selection, formatCodeForInsertion(res.text, textBeforeCursor));

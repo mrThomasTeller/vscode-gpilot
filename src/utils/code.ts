@@ -13,7 +13,7 @@ export function formatCodeForInsertion(code: string, codeBefore: string) {
 
 export function getTabulationOfTheLastLine(code: string) {
   const lastLine = code.split('\n').pop();
-  assert(lastLine);
+  assert(lastLine !== undefined);
   const tabulation = lastLine.match(/^\s*/)?.[0];
   return tabulation ?? '';
 }
