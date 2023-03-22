@@ -40,15 +40,16 @@ const extensionConfig = {
           },
         ],
       },
-      {
-        test: /\.js$/,
-        loader: 'string-replace-loader',
-        options: {
-          search: 'globalThis.fetch',
-          replace: 'require("node-fetch")',
-          flags: 'g',
-        },
-      },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'string-replace-loader',
+      //   enforce: 'pre',
+      //   options: {
+      //     search: 'globalThis.fetch',
+      //     replace: 'require("node-fetch")',
+      //     flags: 'g',
+      //   },
+      // },
     ],
   },
   devtool: 'nosources-source-map',
@@ -57,7 +58,7 @@ const extensionConfig = {
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: './node_modules/@dqbd/tiktoken/dist/node/_tiktoken_bg.wasm' }],
+      patterns: [{ from: './node_modules/@dqbd/tiktoken/tiktoken_bg.wasm' }],
     }),
   ],
 };

@@ -2,6 +2,9 @@
   "name": "gpilot",
   "displayName": "gpilot",
   "description": "Visual Studio Code extension for AI-powered code completion. The free analog of Github Copilot powered by GPT3 official API.",
+  "repository": {
+    "url": "https://github.com/mrThomasTeller/vscode-gpilot"
+  },
   "keywords": [
     "AI",
     "gpt",
@@ -13,7 +16,7 @@
     "Visual Studio Code",
     "extension"
   ],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -55,6 +58,7 @@
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/node-fetch": "^2.6.2",
     "@types/vscode": "^1.76.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
