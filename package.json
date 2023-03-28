@@ -16,7 +16,7 @@
     "Visual Studio Code",
     "extension"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -41,7 +41,13 @@
           "description": "Open AI API key (https://platform.openai.com/account/api-keys)"
         }
       }
-    }
+    },
+    "keybindings": [
+      {
+        "command": "gpilot.suggest",
+        "key": "Ctrl+Alt+space"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",

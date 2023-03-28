@@ -2,20 +2,13 @@
 
 ![Usage Animation](usage.gif)
 
-GPilot is a Visual Studio Code extension that offers AI-powered code completion. It is a free alternative to Github Copilot, powered by GPT3 official API.
-
-IT'S NOT COMPLETELY FREE. You still need to retrieve Open AI API key to use it. After registration you get 18$ free (it will be enough for a looong time).
+GPilot is a Visual Studio Code extension that offers AI-powered code completion. This is an alternative to GitHub Copilot that you don't have to pay for every month. You only pay for API requests to ChatGPT. You need to retrieve Open AI API key to use this extension.
 
 I'm trying to make this extension as similar to GitHub Copilot as possible. I would be glad to have your contribution.
 
-## Installation
-
-- Download [gpilot-0.1.0.vsix](gpilot-0.1.0.vsix)
-- Run the command `Extensions: Install from VSIX...` in VS Code and choose `gpilot-0.1.0.vsix`.
-
 ## Usage
 
-Place the cursor where you want the code suggestion and run the command `GPilot: Suggest code`.
+Place the cursor where you want the code suggestion and run the command `GPilot: Suggest code` (or press `Ctrl+Alt+space`).
 
 ## Todo
 

@@ -25,6 +25,7 @@ const languages = [
   'java',
   'javascript',
   'javascriptreact',
+  'json',
   'less',
   'lua',
   'makefile',
@@ -53,4 +54,5 @@ const languages = [
   'vb',
   'vue',
   'vue-html',
+  'xml',
 ];
